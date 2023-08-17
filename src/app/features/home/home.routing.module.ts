@@ -8,9 +8,3 @@ export const homeRoutes:Routes = [
     component: HomeComponent
 }
 ]
-
-@NgModule({
-    imports: [RouterModule.forRoot(homeRoutes)],
-    exports: [RouterModule]
-})
-export class HomeRoutingModule {}
