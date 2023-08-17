@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { homeRoutes } from './features';
+import { SignInComponent, homeRoutes, signRoutes, signUpRoutes } from './features';
 
 const routes: Routes = [
-  ...homeRoutes
+  ...homeRoutes,
+  ...signRoutes,
+  ...signUpRoutes
 ];
 
 @NgModule({

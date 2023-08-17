@@ -4,13 +4,7 @@ import { NgModule } from "@angular/core";
 
 export const homeRoutes:Routes = [
 {
-    path: "home",
+    path: "",
     component: HomeComponent
 }
 ]
-
-@NgModule({
-    imports: [RouterModule.forRoot(homeRoutes)],
-    exports: [RouterModule]
-})
-export class HomeRoutingModule {}
