@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import {Breakpoints, BreakpointObserver} from '@angular/cdk/layout';
+import { MatSidenav } from '@angular/material/sidenav';
 
 
 @Component({
@@ -8,7 +10,7 @@ import { Component } from "@angular/core";
         "./dashboard.component.css"
     ]
 })
-export class DashboardComponent{
+export class DashboardComponent implements OnInit{
     navElement:any = [
         {
             icon: "done_all",
@@ -54,4 +56,26 @@ export class DashboardComponent{
             link: "list-1"
         },
     ]
+    sideNavOpen: boolean = true;
+    @ViewChild(MatSidenav)
+    mobileSideNav!: MatSidenav;
+    constructor(private responsive: BreakpointObserver){}
+    ngOnInit(): void {
+       this.responsive
+       .observe([
+        Breakpoints.XSmall,
+        Breakpoints.Small,
+        Breakpoints.Medium,
+        Breakpoints.Large,
+        Breakpoints.XLarge
+       ])
+       .subscribe(res => {
+        const breakpoints = res.breakpoints
+        if(breakpoints[Breakpoints.Small]) {
+            this.mobileSideNav.mode = "over"
+        } else {
+            this.mobileSideNav.mode = "side"
+        }
+       })
+    }
 }

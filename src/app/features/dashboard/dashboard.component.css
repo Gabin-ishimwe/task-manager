@@ -4,7 +4,5 @@
     border-color: transparent;
     border-radius: 12px;
     padding: 16px;
-    display: flex;
-    flex-direction: column;
     height: 100%;
 }
