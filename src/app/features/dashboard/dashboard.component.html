@@ -1,6 +1,96 @@
-<main>
-    <mat-drawer-container class="example-container">
-        <mat-drawer mode="side" opened>Drawer content</mat-drawer>
-        <mat-drawer-content>Main content</mat-drawer-content>
+<main class="h-screen p-6">
+    <mat-drawer-container style="background-color: transparent;" autosize class="h-full">
+        <mat-drawer mode="side" opened class="dashboard-drawer">
+            <div class="flex-grow">
+                <div class="flex items-center justify-between">
+                    <h1 class="text-3xl font-bold text-black">Menu</h1>
+                    <button>
+                        <mat-icon class="text-black text-2xl font-bold mb-1">menu</mat-icon>
+                    </button>
+    
+                </div>
+                  <div class="relative mt-4">
+                    <mat-icon class="text-xl absolute left-2 top-1.5">search</mat-icon>
+                      <input type="text" placeholder="Search" id="search" name="search" class="py-2 pl-8 pr-3 block w-full text-black border-gray-200 rounded-md text-sm focus:outline-none bg-transparent">   
+                  </div>
+                  <nav class="mt-4">
+                    <h2 class="uppercase text-sm font-semibold">Tasks</h2>
+                    <ol class="mt-2">
+                        <li class="flex items-center justify-between hover:bg-gray-300 rounded-lg p-2 group transition-all" *ngFor="let el of navElement">
+                            <div class="flex items-center gap-1">
+                                <mat-icon class="text-lg font-medium group-hover:font-bold">{{el.icon}}</mat-icon>
+                                <span class="text-sm font-medium group-hover:font-bold">{{el.name}}</span>
+                            </div>
+    
+                            <span *ngIf="el.num" class="py-1 px-2 bg-gray-200 group-hover:bg-white text-sm font-bold rounded-md">
+                                {{el.num}}
+                            </span>
+                        </li>
+                    </ol>
+                </nav>
+                <hr class="mt-4">
+                <nav class="mt-4">
+                    <h2 class="uppercase text-sm font-semibold">Lists</h2>
+                    <ol class="mt-2">
+                        <li class="flex items-center justify-between hover:bg-gray-300 rounded-lg p-2 group transition-all" *ngFor="let el of navList">
+                            <div class="flex items-center gap-3">
+                                <div class="p-2 rounded" [style.backgroundColor]="el.color"></div>
+                                <span class="text-sm font-medium group-hover:font-bold">{{el.name}}</span>
+                            </div>
+                            <span *ngIf="el.num" class="py-1 px-2 bg-gray-200 group-hover:bg-white text-sm font-bold rounded-md">
+                                {{el.num}}
+                            </span>
+                        </li>
+                        <li class="p-2">
+                            <button class="flex items-center gap-1">
+                                <mat-icon class="text-lg font-bold">add</mat-icon>
+                                <span class="text-sm font-medium mt-1">Add tag</span>
+                            </button>
+                        </li>
+                    </ol>
+                </nav>
+                <hr class="mt-4">
+                <div class="mt-4 flex items-center flex-wrap gap-2">
+                    <span class="flex items-center font-bold text-sm rounded p-2 bg-red-500">
+                        Tag 1
+                    </span>
+                    <span class="flex items-center font-bold text-sm rounded p-2 bg-yellow-500">
+                        Tag 2
+                    </span>
+                    <span class="flex items-center font-bold text-sm rounded p-2 bg-green-500">
+                        Tag 3
+                    </span>
+                    <!-- <span class="flex items-center font-bold text-sm rounded p-2 bg-blue-500">
+                        Tag 4
+                    </span> -->
+                    <span class="flex items-center font-bold text-sm rounded p-1.5 bg-gray-300">
+                        <mat-icon class="text-sm font-bold">add</mat-icon>
+                        <span class="mb-1">
+                            Add tag
+                        </span>
+                        
+                    </span>
+                </div>
+            </div>
+            <div class="mt-4">
+                <ol class="">
+                    <li>
+                        <a class="flex items-center gap-2">
+                            <mat-icon class="text-lg font-medium">settings</mat-icon>
+                            <span class="text-sm font-medium mt-1">Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center gap-2">
+                            <mat-icon class="text-lg font-medium">input</mat-icon>
+                            <span class="text-sm font-medium mt-1">Sign out</span>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+        </mat-drawer>
+        <mat-drawer-content class="bg-white">
+            <router-outlet></router-outlet>
+        </mat-drawer-content>
       </mat-drawer-container>
 </main>
