@@ -6,3 +6,9 @@
     padding: 16px;
     height: 100%;
 }
+
+.mobile-drawer {
+    width: 250px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}

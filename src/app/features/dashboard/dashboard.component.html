@@ -1,6 +1,6 @@
 <main class="h-screen p-6">
     <mat-sidenav-container style="background-color: transparent;" autosize class="h-full">
-        <mat-sidenav #sideNav mode="side" opened class="dashboard-drawer" [(opened)]="sideNavOpen">
+        <mat-sidenav #sideNav mode="side" opened class="dashboard-drawer" [(opened)]="sideNavOpen" [ngClass]="{'mobile-drawer': isSideNavMobile}">
             <div class="h-full flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between">
@@ -17,15 +17,17 @@
                       <nav class="mt-4">
                         <h2 class="uppercase text-sm font-semibold">Tasks</h2>
                         <ol class="mt-2">
-                            <li class="flex items-center justify-between hover:bg-gray-300 rounded-lg p-2 group transition-all" *ngFor="let el of navElement">
-                                <div class="flex items-center gap-1">
-                                    <mat-icon class="text-lg font-medium group-hover:font-bold">{{el.icon}}</mat-icon>
-                                    <span class="text-sm font-medium group-hover:font-bold">{{el.name}}</span>
-                                </div>
-        
-                                <span *ngIf="el.num" class="py-1 px-2 bg-gray-200 group-hover:bg-white text-sm font-bold rounded-md">
-                                    {{el.num}}
-                                </span>
+                            <li>
+                                <a [routerLink]="el.link"  class="flex items-center justify-between hover:bg-gray-300 rounded-lg p-2 group transition-all" *ngFor="let el of navElement">
+                                    <div class="flex items-center gap-1">
+                                        <mat-icon class="text-lg font-medium group-hover:font-bold">{{el.icon}}</mat-icon>
+                                        <span class="text-sm font-medium group-hover:font-bold">{{el.name}}</span>
+                                    </div>
+            
+                                    <span *ngIf="el.num" class="py-1 px-2 bg-gray-200 group-hover:bg-white text-sm font-bold rounded-md">
+                                        {{el.num}}
+                                    </span>
+                                </a>
                             </li>
                         </ol>
                     </nav>
@@ -92,11 +94,13 @@
             </div>
         </mat-sidenav>
         <mat-sidenav-content class="bg-white">
-            <button *ngIf="!sideNavOpen" (click)="sideNav.toggle()">
-                <mat-icon class="text-black text-2xl font-bold mb-1">menu</mat-icon>
-            </button>
-            <h1>main content</h1>
-            <router-outlet></router-outlet>
+            <div class="w-full h-full flex gap-4 items-start">
+                <button *ngIf="!sideNavOpen" (click)="sideNav.toggle()" class="transition-all">
+                    <mat-icon class="text-black text-2xl font-bold mb-1">menu</mat-icon>
+                </button>
+                <router-outlet></router-outlet>
+
+            </div>
         </mat-sidenav-content>
       </mat-sidenav-container>
 </main>

@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit{
     navElement:any = [
         {
             icon: "done_all",
-            name: "Upcomming",
+            name: "Upcoming",
             num: 12,
             link: "upcoming"
         },
@@ -57,7 +57,8 @@ export class DashboardComponent implements OnInit{
         },
     ]
     sideNavOpen: boolean = true;
-    @ViewChild(MatSidenav)
+    isSideNavMobile: boolean = false
+    @ViewChild("sideNav")
     mobileSideNav!: MatSidenav;
     constructor(private responsive: BreakpointObserver){}
     ngOnInit(): void {
@@ -71,10 +72,12 @@ export class DashboardComponent implements OnInit{
        ])
        .subscribe(res => {
         const breakpoints = res.breakpoints
-        if(breakpoints[Breakpoints.Small]) {
+        if(breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.XSmall]) {
             this.mobileSideNav.mode = "over"
+            this.isSideNavMobile = true
         } else {
             this.mobileSideNav.mode = "side"
+            this.isSideNavMobile = false
         }
        })
     }

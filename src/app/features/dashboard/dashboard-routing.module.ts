@@ -1,9 +1,16 @@
 import { Routes } from "@angular/router";
 import { DashboardComponent } from "./dashboard.component";
+import { Upcoming } from "./page";
 
 export const dashboardRoutes:Routes = [
     {
         path: "dashboard",
-        component: DashboardComponent
+        component: DashboardComponent,
+        children: [
+            {
+                path: "upcoming",
+                component: Upcoming
+            }
+        ]
     }
 ]
