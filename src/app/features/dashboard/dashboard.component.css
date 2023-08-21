@@ -1,0 +1,14 @@
+.dashboard-drawer {
+    width: calc(100vw * 0.20);
+    background-color: rgb(244 244 245);
+    border-color: transparent;
+    border-radius: 12px;
+    padding: 16px;
+    height: 100%;
+}
+
+.mobile-drawer {
+    width: 250px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}

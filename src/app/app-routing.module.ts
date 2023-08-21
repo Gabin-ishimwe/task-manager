@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SignInComponent, homeRoutes, signRoutes, signUpRoutes } from './features';
+import { SignInComponent, dashboardRoutes, homeRoutes, signRoutes, signUpRoutes } from './features';
 
 const routes: Routes = [
   ...homeRoutes,
   ...signRoutes,
-  ...signUpRoutes
+  ...signUpRoutes,
+  ...dashboardRoutes
 ];
 
 @NgModule({
