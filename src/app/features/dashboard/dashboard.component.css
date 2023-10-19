@@ -5,6 +5,7 @@
     border-radius: 12px;
     padding: 16px;
     height: 100%;
+    flex: 0 0 auto; /* Prevent flex from shrinking or growing */
 }
 
 .mobile-drawer {

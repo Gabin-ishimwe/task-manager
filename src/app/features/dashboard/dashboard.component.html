@@ -1,5 +1,5 @@
 <main class="h-screen p-6">
-    <mat-sidenav-container style="background-color: transparent;" autosize class="h-full">
+    <mat-sidenav-container style="background-color: transparent;" autosize class="h-full flex">
         <mat-sidenav #sideNav mode="side" opened class="dashboard-drawer" [(opened)]="sideNavOpen" [ngClass]="{'mobile-drawer': isSideNavMobile}">
             <div class="h-full flex flex-col justify-between">
                 <div>
@@ -93,7 +93,7 @@
                 </div>
             </div>
         </mat-sidenav>
-        <mat-sidenav-content class="bg-white" style="width: 100%;">
+        <mat-sidenav-content class="bg-white" style="margin-left: calc(100vw * 0.2); width: 100%;">
             <div class="w-full h-full flex gap-4 items-start">
                 <button *ngIf="!sideNavOpen" (click)="sideNav.toggle()" class="transition-all">
                     <mat-icon class="text-black text-2xl font-bold mb-1">menu</mat-icon>
